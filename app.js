@@ -1,14 +1,16 @@
-const express = require('express');
+const express = require("express");
 const app = express();
 
+app.get('/makers/:nombre', (req, res) => {
+  let nombre = req.params.nombre;
+  // if (!nombre || nombre.length === 0) {
+  //   nombre = "desconocido";
+  // }
+  //
+  res.send(`<h1>Hola ${nombre}!</h1>`);
+});
 app.get('/', (req, res) => {
-  if (req.query.nombre === null || req.query.nombre === undefined) {
-    res.send("<h1>Hola desconocido!</h1>");
-  }
-	else {
-    res.send("<h1>Hola " + req.query.nombre + "!</h1>");
-  }
-	end
+  res.send(`<h1>Hola desconocido!</h1>`);
 });
 
-app.listen(3000, () => console.log('Listening on port 3000!'))
+app.listen(3000, () => console.log('Listening on port 3000!'));
